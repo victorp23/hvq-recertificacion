@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,800,700italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <style>
+            body {
+                background-color: #f5f5f5;
+            }
+
+            h1, h2 {
+                letter-spacing: 1px;
+            }
+
+            h3, h4 {
+                margin: 0 0 10px;
+            }
+
+            a{
+                color:#232323;
+            }
+
+            a:hover{
+                color:#721940;
+            }
+
+            .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn.focus:active, .btn.active.focus {
+                outline: none;
+                outline-offset: 0px;
+            }
+
+            .btn {
+                border-radius: 50px;
+                font-family: Titillium Web;
+            }
+
+            .widget{
+                background: #fff none repeat scroll 0 0;
+                border-radius: 2px;
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+                min-height: 318px;
+                padding: 26px;
+            }
+
+            .nav-extra {
+                float: right;
+            }
+
+            .greynum {
+                color: rgba(0, 0, 0, 0.36);
+                float: left;
+                line-height: 28px
+            }
+            .sidebarWrapper {
+                background: #721940;
+                text-align: center;
+                height: 100%;
+            }
+            .toggle-btn {
+                background: #141414 none repeat scroll 0 0;
+                text-align: center;
+            }
+            .submit-style:focus, .toggle-btn:focus, a, a:focus, a:hover {
+                outline: 0 none;
+            }
+            .blog-post::after, .lines::after, .lines::before, .skill-outer h4 span::before, .testimonial-content h4 span::before {
+                content: "";
+            }
+            .footer-background, .imageHover, .popup-box h3, .sidebarWrapper, .social-media, .toggle-btn {
+                text-align: center;
+            }
+            body {
+                color: #3c3c3c;
+                font: 300 14px open sans,sans-serif;
+                letter-spacing: 0.5px;
+                overflow-x: hidden;
+            }
+            h1, h2, h3, h4, h5 {
+                color: #232323;
+                font-family: 'Titillium Web', sans-serif;
+            }
+            h1 {
+                font: 900 24px/36px "Titillium Web",serif;
+                margin: 0 0 15px;
+            }
+            h2 {
+                font: 200 38px "Titillium Web",serif;
+            }
+            h3 {
+                font: 900 16px "Titillium Web",serif;
+                letter-spacing: 1.5px;
+            }
+            .portfolio-filter ul li, .sidebar .nav li, h4 {
+                letter-spacing: 1px;
+                text-transform: uppercase;
+            }
+            h4 {
+                font: 900 13px "Titillium Web",serif;
+            }
+            p {
+                line-height: 24px;
+                margin: 0;
+                font: 300 18px open sans,sans-serif;
+            }
+            a, a:focus, a:hover {
+                text-decoration: none;
+            }
+            .row, li, ul {
+                margin: 0;
+                padding: 0;
+            }
+            li {
+                list-style-type: none;
+            }
+            .section-title {
+                margin-bottom: 50px;
+            }
+            .section-title h2::after {
+            background: #721940 none repeat scroll 0 0;
+                content: "";
+                display: table;
+                height: 2px;
+                left: 28px;
+                position: absolute;
+                width: 40px;
+            }
+            .section-title span {
+                color: #969696;
+                font: 500 14px open sans,sans-serif;
+                padding-right: 10px;
+            }
+            .sidebar {
+                padding: 0;
+                position: relative;
+                top: 0;
+            }
+            .sidebarWrapper {
+                box-shadow: 0 3px 10px 3px rgba(0, 0, 0, 0.3);
+                color: #fff;
+                padding: 27px 0 0;
+            }
+
+            .user-pic {
+                border-radius: 140px;
+                width: 50%;
+            }
+            .sidebar .nav {
+                padding: 10px 20px;
+                background: #fff none repeat scroll 0 0;
+                padding: 10px 20px;
+            }
+            .toggle-btn {
+                cursor: pointer;
+                height: 60px;
+                line-height: 60px;
+                margin: 0;
+                width: 100%;
+                z-index: 998;
+            }
+            .fixed {
+                box-shadow: 0 3px 10px 3px rgba(0, 0, 0, 0.3);
+                left: 30px;
+                position: fixed;
+                right: 30px;
+                top: 0;
+                width: auto;
+            }
+            .lines, .lines::after, .lines::before {
+                background: #fff none repeat scroll 0 0;
+                display: inline-block;
+                height: 2px;
+                width: 20px;
+            }
+            .lines {
+                margin: 0;
+                padding: 0;
+                position: relative;
+                vertical-align: middle;
+            }
+            .lines::after, .lines::before {
+                left: 0;
+                position: absolute;
+                transition: all 0.2s linear 0s;
+            }
+            .sidebar .nav li a, .social-media ul li a {
+                transition: all 0.1s linear 0s;
+            }
+            .lines::before {
+                top: 5px;
+            }
+            .lines::after {
+                top: -5px;
+            }
+            .toggle-close .lines {
+                background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+            }
+            .toggle-close .lines::after, .toggle-close .lines::before {
+                top: 0;
+                transform-origin: 50% 50% 0;
+            }
+            .toggle-close .lines::before {
+                transform: rotate3d(0, 0, 1, 45deg);
+            }
+            .toggle-close .lines::after {
+                transform: rotate3d(0, 0, 1, -45deg);
+            }
+            .sidebar .nav li {
+                font: 900 13px "Titillium Web",serif;
+                padding: 10px 0;
+            }
+            .sidebar .nav li a {
+                background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+                color: #232323;
+                display: inline-block;
+                padding: 0;
+                transition: all 0.1s linear 0s;
+            }
+            .sidebar .nav li a:hover, .sidebar .nav li.active a {
+                color: #721940;
+                opacity: unset;
+            }
+
+            .about-background {
+                margin-bottom: -50px;
+                padding: 25px 0 0;
+            }
+            .aboutWrapper {
+                padding: 0;
+            }
+            .signature {
+                text-align: center;
+                padding: 9px 0 12px;
+            }
+            .signature .img-responsive {
+                margin: auto;
+            }
+            .skills {
+            
+                margin-top: 37px;
+                width: 100%;
+            }
+            .skill-outer {
+                margin-bottom: 50px;
+            }
+
+            .skill-outer h4 span {
+                background: #fff none repeat scroll 0 0;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+                color: #a0a0a0;
+                font: 600 13px open sans,sans-serif;
+                margin-left: 10px;
+                padding: 2px 6px;
+                position: relative;
+            }
+            .skill-outer h4 span::before {
+                right: 100%;
+                top: 50%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-color: rgba(136, 183, 213, 0);
+                border-right-color: #fff;
+                border-width: 5px;
+                margin-top: -5px;
+            }
+            .imageWrapper, .progress-bar {
+                position: relative;
+            }
+            .progress, .progress-bar {
+                box-shadow: none;
+                height: 6px;
+            }
+            .progress {
+                background: #d2d2d2 none repeat scroll 0 0;
+                border-radius: 15px;
+                margin: 0;
+            }
+            .progress-bar {
+                background: #721940 none repeat scroll 0 0;
+            }
+            .services-background {
+                margin-bottom: -30px;
+                padding: 100px 0 0;
+            }
+            .servicesWrapper {
+                padding: 0;
+            }
+            .service-box {
+                margin-bottom: 30px;
+            }
+            .service-box div:first-child {
+                float: left;
+                width: 36px;
+            }
+            .service-box i {
+                font-size: 36px;
+            }
+            .service-box div:last-child {
+                padding-left: 66px;
+            }
+            .portfolio-background {
+                padding: 100px 0 0;
+            }
+            .portfolio-background .section-title {
+                display: inline-table;
+                width: 100%;
+            }
+            .portfolio-background .section-title h2 {
+                margin: 0;
+            }
+            .portfolioWrapper {
+                padding: 0;
+            }
+            .portfolioWrapper img {
+                width: 100%;
+                transition: all 300ms ease-in-out 0s;
+            }
+            .portfolioWrapper .imageHover:hover {
+                transform: scale(1.1);
+                z-index: 999;
+            }
+            .portfolio-filter {
+                margin-top: 25px;
+            }
+            .portfolio-filter ul li {
+                display: inline-block;
+                transition: all 0.1s linear 0s;
+            }
+            .imageHover span, .resume-box span {
+                font-style: italic;
+            }
+            .portfolio-filter ul li:hover {
+                border-color: #141414;
+                cursor: pointer;
+            }
+            .portfolio-filter ul li.active {
+                border-color: #141414;
+            }
+            #mix-container {
+                margin: -3px;
+            }
+            #mix-container .mix {
+                display: none;
+                padding: 3px;
+            }
+            .imageHover, .imageHover div {
+                position: absolute;
+                width: 100%;
+            }
+            .imageHover {
+                background: #721940 none repeat scroll 0 0;
+                color: #fff;
+                height: 100%;
+                left: 0;
+                opacity: 0;
+                top: 0;
+                transition: all 0.3s ease-out 0s;
+                visibility: hidden;
+            }
+
+            .imageHover div {
+                top: 50%;
+                transform: translate(0px, -50%);
+            }
+            .imageHover h3 {
+                color: #fff;
+            }
+            .imageWrapper:hover .imageHover {
+                opacity: 1;
+                visibility: visible;
+            }
+            button.mfp-close {
+                background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+                color: #fff !important;
+                height: 60px;
+                line-height: 60px;
+                opacity: 1;
+                transition: all 0.1s linear 0s;
+                width: 60px;
+            }
+            .blog-post a, .submit-style {
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                transition: all 0.1s linear 0s;
+            }
+            button.mfp-close:hover {
+                background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
+                opacity: 1;
+            }
+            .popup-box {
+                background: #fff none repeat scroll 0 0;
+                margin: 0 auto;
+                max-width: 640px;
+                position: relative;
+                width: auto;
+            }
+            .popup-box div {
+                padding: 30px;
+            }
+            .popup-box img {
+                width: 100%;
+            }
+            .resume-background {
+                padding: 100px 0 0;
+            }
+            .resumeWrapper {
+                padding: 0;
+            }
+            .resume-box {
+                margin-bottom: 30px;
+            }
+            .resume-box:last-child {
+                margin: 0;
+            }
+            .resume-box div:first-child {
+                background: #fff none repeat scroll 0 0;
+                border-radius: 50%;
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+                color: #721940;
+                float: left;
+                font-size: 29px;
+                height: 100px;
+                line-height: 100px;
+                text-align: center;
+                width: 100px;
+            }
+            .resume-box div:last-child {
+                padding-left: 130px;
+            }
+            .resume-box span {
+                color: #a0a0a0;
+                display: block;
+                font-weight: 500;
+                padding-bottom: 5px;
+            }
+            .blog-background {
+                padding: 100px 0 0;
+            }
+            .blogWrapper {
+                padding: 0;
+            }
+            .blog-img {
+                position: relative;
+            }
+            .post-ver-date {
+                bottom: 13px;
+                color: #fff;
+                left: 15px;
+                position: absolute;
+                z-index: 9999;
+            }
+            .blog-dis > h3 {
+                margin: 15px 0 9px;
+            }
+            .blog-post.row, .copyright .row {
+                margin-left: -15px !important;
+                margin-right: -15px !important;
+            }
+            .blog-post {
+                margin-bottom: 50px;
+            }
+            .blog-post:last-child {
+                margin: 0;
+            }
+            .blog-post img {
+                width: 100%;
+            }
+            .blog-post h3 {
+                font-size: 20px;
+            }
+            .blog-post a {
+                margin-top: 25px;
+                transition: all 0.1s linear 0s;
+            }
+            .blog-post a:focus, .blog-post a:hover {
+                border-color: #141414;
+            }
+            .testimonial-background {
+                padding: 100px 0 0;
+            }
+            .testimonialWrapper {
+                padding: 0;
+            }
+
+            .testimonial-author {
+                margin: 0 0 20px;
+                overflow: hidden;
+                width: 100%;
+            }
+            .testimonial-content p {
+                font-style: italic;
+            }
+            .testimonial-content h4 {
+                margin: 10px 0 0;
+            }
+            .testimonial {
+                margin: 0 0 30px;
+                padding-right: 30px;
+            }
+            .testimonial .testimonial_photo {
+                border-radius: 50%;
+                float: left;
+                height: 70px;
+                margin: 0;
+                width: 70px;
+            }
+            .testimonial .testimonial_content {
+                background-color: rgb(255, 255, 255);
+                border: 1px solid rgb(232, 232, 232);
+                border-radius: 23px;
+                padding: 13px 19px 15px 60px;
+                position: relative;
+            }
+            .testimonial .testimonial_content p {
+                margin: 9px 0;
+            }
+            .testimonial .testimonial_content_inner::before {
+                color: rgb(170, 170, 170);
+                content: "?";
+                font-size: 82px;
+                left: 21px;
+                position: absolute;
+                top: -12px;
+            }
+            .testimonial .testimonial_author {
+                padding: 22px 0 0 13px;
+            }
+            .testimonial h3.testimonial_name {
+                font-size: 22px;
+                font-weight: 600;
+                letter-spacing: 0;
+                line-height: 20px;
+                margin: 17px 0 0;
+            }
+            .testimonial .testimonial_position {
+                font-size: 11px;
+                margin: -1px 0 0;
+            }
+            .testimonial h3.testimonial_name, .testimonial .testimonial_position {
+                margin-left: 81px;
+            }
+            .testimonial .testimonial_content::after, .testimonial .testimonial_content::before {
+                border: medium solid rgba(0, 0, 0, 0);
+                content: " ";
+                height: 0;
+                pointer-events: none;
+                position: absolute;
+                top: 100%;
+                width: 0;
+            }
+            .testimonial .testimonial_content::after {
+                border-style: solid;
+                border-top: 8px solid rgb(255, 255, 255);
+                border-width: 8px;
+                content: "";
+                left: 37px;
+                position: absolute;
+            }
+            .testimonial .testimonial_content::before {
+                border-style: solid;
+                border-top: 10px solid rgb(232, 232, 232);
+                border-width: 10px;
+                content: "";
+                left: 35px;
+                position: absolute;
+            }
+
+            .submit-style, .testimonial-box .owl-theme .owl-nav {
+                margin-top: 30px;
+            }
+            .testimonial-content h4 span::before {
+                background: #d2d2d2 none repeat scroll 0 0;
+                height: 1px;
+                left: 0;
+                position: absolute;
+                top: 50%;
+                width: 10px;
+            }
+            .testimonial-box .owl-theme .owl-dots .owl-dot span {
+                background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+                border: 1px solid #141414;
+                margin: 0 7px;
+            }
+            .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span, .submit-style {
+                background: #141414 none repeat scroll 0 0;
+            }
+            .contact-background {
+                padding: 100px 0 0;
+            }
+            .contact-form, .contact-info, .contactWrapper {
+                padding: 0;
+            }
+            .input-style input, .text-style textarea {
+                background: transparent none repeat scroll 0 0;
+                color: #3c3c3c;
+                outline: 0 none;
+                padding: 11px 0;
+                width: 100%;
+            }
+            .input-style div {
+                margin-bottom: 20px;
+            }
+            #submit {
+                margin: 15px 0 3px;
+            }
+            textarea {
+                height: 120px;
+            }
+            :-moz-placeholder {
+                color: #3c3c3c;
+                letter-spacing: 0.5px;
+            }
+            *::-moz-placeholder {
+                color: #3c3c3c;
+                letter-spacing: 0.5px;
+            }
+            .submit-style {
+                border: medium none;
+                border-radius: 20px;
+                color: #fff;
+                display: inline-block;
+                font: italic 900 13px "Titillium Web",serif;
+                padding: 10px 25px;
+                transition: all 0.1s linear 0s;
+            }
+            .submit-style:hover {
+                background: #323232 none repeat scroll 0 0;
+            }
+            #error, #success {
+                display: none;
+                margin-top: 50px;
+            }
+            #success {
+                color: #419873;
+            }
+            #error {
+                color: red;
+            }
+            .google-maps {
+                margin: 51px 0 0;
+            }
+            .contact-info ul li {
+                margin-bottom: 15px;
+            }
+
+            .footer-background ul {
+                margin-top: 30px;
+            }
+            .footer-background ul li {
+                display: inline-block;
+            }
+            .footer-background ul li a {
+                background: #141414 none repeat scroll 0 0;
+                border-radius: 20px;
+                color: #fff;
+                display: inline-block;
+                font: italic 900 13px "Titillium Web",serif;
+                letter-spacing: 1px;
+                padding: 10px 25px;
+                text-transform: uppercase;
+                transition: all 0.1s linear 0s;
+            }
+            .footer-background ul li a:focus, .footer-background ul li a:hover {
+                background: #323232 none repeat scroll 0 0;
+            }
+
+
+            .top-br, .left-br, .bottom-br, .right-br {
+                background: #fff none repeat scroll 0 0;
+                position: fixed;
+                z-index: 9;
+            }
+            .right-br {
+                height: 100%;
+                right: 0;
+                top: 0;
+                width: 30px;
+            }
+
+            .left-br {
+                height: 100%;
+                left: 0;
+                top: 0;
+                width: 30px;
+            }
+            .fixed-left-contact {
+                height: 100%;
+                left: 0;
+                position: fixed;
+                width: 30px;
+                z-index: 100;
+            }
+            .fixed-left-contact p {
+                left: -46px;
+                letter-spacing: 2px;
+                position: absolute;
+                top: 50%;
+                transform: rotate(-90deg);
+            }
+            .fixed-right-socials {
+                bottom: 0;
+                position: fixed;
+                right: 3px;
+                top: 13%;
+                z-index: 9;
+            }
+            .fixed-right-socials ul {
+                list-style: outside none none;
+                padding: 0;
+            }
+            .fixed-right-socials li {
+                margin: 9px 0;
+            }
+            .bg-color {
+                background: #232323 none repeat scroll 0 0;
+                border-radius: 2px;
+                color: #fff;
+                font-weight: unset;
+                line-height: 58px;
+                padding: 0 12px;
+                position: relative;
+                text-transform: uppercase;
+            }
+
+            .copyright {
+            
+                font-size: 13px;
+                padding: 30px 0;
+            }
+            .red {
+                color: #f00;
+                display: inline-block;
+                padding: 0 4px;
+            }
+            .list-unstiled i {
+                border-radius: 25px;
+                color: #fff;
+                font-size: 12px;
+                height: 23px;
+                line-height: 23px;
+                text-align: center;
+                transition: all 300ms ease 0s;
+                width: 23px;
+            }
+            .list-unstiled .fa-facebook {
+                background: #2f5a9a none repeat scroll 0 0;
+            }
+            .list-unstiled .fa-twitter {
+                background: #3abdd1 none repeat scroll 0 0;
+            }
+            .list-unstiled .fa-google-plus {
+                background: #c63b1e none repeat scroll 0 0;
+            }
+            .list-unstiled .fa-linkedin {
+                background: #097fc3 none repeat scroll 0 0;
+            }
+            .list-unstiled .fa-instagram {
+                background: #097fc3 none repeat scroll 0 0;
+            }
+            .list-unstiled .fa-skype {
+                background: #00aff0 none repeat scroll 0 0;
+            }
+            .list-unstiled .fa-dribbble {
+                background: #e74d89 none repeat scroll 0 0;
+            }
+            .list-unstiled .fa-behance {
+                background: #006ffb none repeat scroll 0 0;
+            }
+            .list-unstiled .fa-pinterest {
+                background: #ca3737 none repeat scroll 0 0;
+            }
+            textarea:focus, textarea.form-control:focus, input.form-control:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="number"]:focus, .form-control[type="text"]:focus, .form-control[type="password"]:focus, .form-control[type="email"]:focus, .form-control[type="tel"]:focus, .form-control[contenteditable]:focus {
+                box-shadow: 0 -2px 0 #721940 inset;
+            }
+
+            @media only screen and (min-width: 768px) {
+                .sidebarWrapper {
+                    position: fixed;
+                }
+                .toggle-btn {
+                    position: absolute;
+                    visibility: hidden;
+                }
+                .toggle-placeholder {
+                    display: none;
+                }
+                .service-box, .skill-outer {
+                    float: left;
+                    width: 50%;
+                }
+                .service-box:nth-child(2n+1), .skill-outer:nth-child(2n) {
+                    padding-left: 25px;
+                }
+                .service-box:nth-child(2n), .skill-outer:nth-child(2n+1) {
+                    padding-right: 25px;
+                }
+                .portfolio-filter ul li {
+                    margin-right: 10px;
+                }
+                .footer-background ul li:last-child, .portfolio-filter ul li:last-child {
+                    margin: 0;
+                }
+                .contact-form {
+                    padding: 0 25px 0 0;
+                }
+                .contact-info {
+                    padding: 0 0 0 25px;
+                }
+                .footer-background ul li {
+                    margin-right: 20px;
+                }
+            }
+            @media only screen and (min-width: 1600px) {
+                .aboutWrapper, .blogWrapper, .contactWrapper, .footer-background, .portfolioWrapper, .resumeWrapper, .servicesWrapper, .testimonialWrapper {
+                    margin-left: 30%;
+                    width: 70%;
+                }
+            }
+            @media only screen and (min-width: 1920px) {
+                .aboutWrapper, .blogWrapper, .contactWrapper, .footer-background, .portfolioWrapper, .resumeWrapper, .servicesWrapper, .testimonialWrapper {
+                    margin-left: 35%;
+                    width: 65%;
+                }
+            }
+            @media only screen and (max-width: 767px) {
+                body {
+                    background-color: #fff;
+                }
+                .fixed-left-contact, .fixed-right-socials, .right-br, .left-br {
+                    display: none;
+                }
+                .container {
+                    padding: 0 30px;
+                }
+                .menu {
+                    position: relative;
+                }
+                .nav {
+                    background: #141414 none repeat scroll 0 0;
+                    box-shadow: 0 3px 10px 3px rgba(0, 0, 0, 0.3);
+                    left: 0;
+                    opacity: 0;
+                    position: absolute;
+                    top: 60px;
+                    transform: translateY(-10px);
+                    transition: all 0.3s ease-out 0s;
+                    visibility: hidden;
+                    width: 100%;
+                    z-index: 997;
+                }
+                .show-nav {
+                    opacity: 1;
+                    transform: translateY(0px);
+                    visibility: visible;
+                }
+                .stickyNav {
+                    left: 30px;
+                    position: fixed;
+                    right: 30px;
+                    width: auto;
+                }
+                .about-background, .services-background, .skill-outer:last-child {
+                    margin: 0;
+                }
+                .skill-outer {
+                    margin-bottom: 30px;
+                    width: 100%;
+                }
+                .service-box {
+                    width: 100%;
+                }
+                .service-box:last-child {
+                    margin: 0;
+                }
+                .portfolio-filter ul {
+                    margin: -10px 0;
+                }
+                .portfolio-filter ul li {
+                    margin: 10px 20px 10px 0;
+                }
+                .blog-post div:last-child {
+                    padding: 30px 0 0;
+                }
+                .contact-form {
+                    margin-bottom: 50px;
+                }
+                .footer-background ul {
+                    margin: 20px 0 -10px;
+                }
+                .footer-background ul li {
+                    padding: 10px;
+                }
+            }
+            
+            option{
+                font-size:16px;
+            }
+
+            select{
+                font-size:9pt;
+            }
+        </style>
+        <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>	
+        
+        <script>
+            var suma=0;
+
+            function cal_actividad(){
+                var suma = 0;
+                suma += Number(document.getElementById('a_nombra').value);
+                suma += Number(document.getElementById('a_nombra2').value);
+                suma += Number(document.getElementById('a_nombra3').value);
+                suma += Number(document.getElementById('a_profe').value);
+                suma += Number(document.getElementById('a_editor').value);
+                suma += Number(document.getElementById('a_autor').value);
+                suma += Number(document.getElementById('a_coautor').value);
+
+                if(suma > 10){
+                    document.getElementById('a_tot1').innerHTML = 10;
+                }else{
+                    document.getElementById('a_tot1').innerHTML = suma;
+                }
+            }
+
+            function cal_educacion(){
+                var suma2 = 0;
+                suma2 += Number(document.getElementById('e_sesiones').value);
+
+                if(suma2 > 5){
+                    document.getElementById('e_tot1').innerHTML = 5;
+                }else{
+                    document.getElementById('e_tot1').innerHTML = suma2;
+                }
+            }
+
+            function validar(num){
+                if(num > 0){
+                    num = 5
+                    return num
+                }else{
+                    num = 0
+                    return num
+                }
+            }
+
+            function validar15(num){
+                if(num > 0){
+                    num = 15
+                    return num
+                }else{
+                    num = 0
+                    return num
+                }
+            }
+
+            function validar10(num){
+                if(num > 0){
+                    num = 10
+                    return num
+                }else{
+                    num = 0
+                    return num
+                }
+            }
+
+            function validar3(num){
+                if(num > 0){
+                    num = 3
+                    return num
+                }else{
+                    num = 0
+                    return num
+                }
+            }
+
+            function cal_participacion(){
+                var suma = 0;
+                var n1 = Number(document.getElementById('p_cursos').value);
+                suma += validar(n1);
+                
+                var n2 = Number(document.getElementById('p_talleres').value);
+                suma += validar(n2);
+
+                var n3 = Number(document.getElementById('p_congresos').value);
+                suma += validar(n3);
+
+                var n4 = Number(document.getElementById('p_seminarios').value);
+                suma += validar(n4);
+
+                var n5 = Number(document.getElementById('p_obligatorios').value);
+                suma += validar(n5);
+
+                var n6 = Number(document.getElementById('p_electronicos').value);
+                suma += validar(n6);
+
+                if(suma > 15){
+                    document.getElementById('p_tot1').innerHTML = 15;
+                }else{
+                    document.getElementById('p_tot1').innerHTML = suma;
+                }
+            }
+
+            function cal_academia(){
+                var suma = 0;
+                var n1 = Number(document.getElementById('pb_hospi').value);
+                suma += validar15(n1);
+                
+                var n2 = Number(document.getElementById('pb_consulta').value);
+                suma += validar10(n2);
+
+                var n3 = Number(document.getElementById('pb_progra').value);
+                suma += validar(n3);
+
+                var n4 = Number(document.getElementById('pb_miercoles').value);
+                suma += validar(n4);
+
+                var n5 = Number(document.getElementById('pb_talleres').value);
+                suma += validar3(n5);
+
+                var n6 = Number(document.getElementById('pb_perlas').value);
+                suma += validar(n6);
+
+                if(suma > 20){
+                    document.getElementById('pb_tot1').innerHTML = 20;
+                }else{
+                    document.getElementById('pb_tot1').innerHTML = suma;
+                }
+            }
+
+            function cal_suscripcion(){
+                var suma = 0;
+                var n1 = Number(document.getElementById('s_medico').value);
+                suma += validar(n1);
+                
+                var n2 = Number(document.getElementById('s_actividades').value);
+                suma += validar(n2);
+
+                if(suma >= 5){
+                    document.getElementById('s_tot1').innerHTML = 5;
+                }else{
+                    document.getElementById('s_tot1').innerHTML = suma;
+                }
+            }
+
+            function cal_otros(){
+                var suma = 0;
+                var i=10;
+                var n1 = Number(document.getElementById('o_quejas').value)*10;
+                var r_n1 = i - n1;
+                suma += r_n1;
+
+                var n2 = Number(document.getElementById('o_auditorias').value)*10;
+                var r_n2 = i - n2;
+                suma += r_n2;
+
+                var n3 = Number(document.getElementById('o_puntualidad').value);
+                var r_n3 = i - n3;
+                suma += r_n3;
+
+                var n4 = Number(document.getElementById('o_asistencia').value)*3;
+                var r_n4 = i - n4;
+                suma += r_n4;
+
+                var n5 = Number(document.getElementById('o_respuesta').value)*5;
+                var r_n5 = i - n5;
+                suma += r_n5;             
+
+                var n6 = Number(document.getElementById('o_paci_mas10').value);
+                if(n6 > 10){
+                    var r_n6 = 10;
+                }else{
+                    var r_n6 = 0;
+                }
+                suma += r_n6;
+
+                var n7 = Number(document.getElementById('o_paci_5-9').value);
+                if(n7>4 && n7<10){
+                    var r_n7 = 5;
+                }else{
+                    var r_n7 = 0;
+                }
+                suma += r_n7;
+
+                var n8 = Number(document.getElementById('o_paci_menos5').value);
+                if(n8<5){
+                    var r_n8 = -5;
+                }else{
+                    var r_n8 = 0;
+                }
+                suma += r_n8;
+
+                var n9 = Number(document.getElementById('o_vinculacion').value);
+                suma += validar(n9);
+                
+                var n10 = Number(document.getElementById('o_jefes').value);
+                suma += validar(n2);
+
+                var r_n9 = i - n9;
+                suma += r_n9;
+
+                if(suma > 45){
+                    document.getElementById('o_tot1').innerHTML = 45;
+                }else{
+                    if(suma > 0){
+                        document.getElementById('o_tot1').innerHTML = suma;
+                    }else{
+                        document.getElementById('o_tot1').innerHTML = 0;
+                    }
+                }
+            }
+
+            function revisar(){
+                var sumat=0;
+                var r1 = Number(document.getElementById('a_tot1').innerHTML);
+                var r2 = Number(document.getElementById('e_tot1').innerHTML);
+                var r3 = Number(document.getElementById('p_tot1').innerHTML);
+                var r4 = Number(document.getElementById('pb_tot1').innerHTML);
+
+                var r5 = Number(document.getElementById('o_tot1').innerHTML);
+                var r6 = Number(document.getElementById('s_tot1').innerHTML);
+                
+                sumat = r1+r2+r3+r4+r5+r6;
+                alert(sumat)
+            }
+
+        </script>
+    </head>
+    <body>
+        <!-- Sidebar -->
+        <div >
+            <div class="row" >
+                <div class="col-xs-12 col-sm-2 sidebar" >
+                    <div class="col-sm-2 sidebarWrapper">
+                        <form action="/about"  method="GET" style="position: absolute;">
+                            <button style="border:none; background: none;" type="submit" >
+                                <iconify-icon icon="ic:round-keyboard-backspace" style="color: white;" width="50" height="39"></iconify-icon></iconify-icon>
+                            </button>
+                        </form>
+                        <br>
+                        <br>
+						<img class="user-pic" src="https://cdn-icons-png.flaticon.com/512/1021/1021566.png" alt="">
+						<div class="signature">
+							{% for medico1 in medico %}
+                                {{medico1.nombre}}
+                            {%endfor%}
+						</div>
+                        <!-- Menu -->
+                        <div class="menu">
+                            <div class="toggle-btn">
+                                <span class="lines"></span>
+                            </div>
+                            <ul class="nav">
+                                <li class="active">
+                                    <a href="#info">INFORMACIÓN GENERAL</a>
+                                </li>
+                                <li>
+                                    <a href="#actividad">ACTIVIDAD ACADÉMICA</a>
+                                </li>
+                                <li>
+                                    <a href="#educacion">EDUCACIÓN EN HVQ</a>
+                                </li>
+                                <li>
+                                    <a href="#cursos">PARTICIPACIÓN EN CURSOS Y CONGRESOS</a>
+                                </li>
+                                <li>
+                                    <a href="#academia">PARTICIPACIÓN EN ACTIVIDADES DE LA ACADEMIA DE BRUNCKER</a>
+                                </li>
+                                <li>
+                                    <a href="#bibliotecas">SUSCRIPCIÓN EN BIBLIOTECAS VIRTUALES</a>
+                                </li>
+                                <li>
+                                    <a href="#otros">OTROS</a>
+                                </li>
+                            </ul>
+                        </div><!-- end Menu -->
+                    </div>
+                </div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+        <!-- end Sidebar -->
+
+        <!-- About section 
+        <section id="info" style="background-color:  #dcdcdc;">
+            <div class="about-background">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-9 col-sm-offset-3 aboutWrapper">
+                            <div class="section-title">
+                                <h2><span>01</span>INFORMACIÓN GENERAL</h2>
+							</div>
+                            
+							<h1>Hello, I am <strong>Johnny Smith</strong> <br>Designer and <span class="bg-color">Front-end Developer</span></h1>
+							<p>Ultricies nisi voluptatem, illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque latu dantium, totam rem aperiam, eaque ipsa quae ab illo tempor dignissim at. </p>
+                            <div class="skills">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        end About section -->
+
+        <!-- Services section -->
+        <section id="actividad" style="background-color:  #dcdcdc;">
+            <div class="services-background" >
+                <div class="container" >
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-9 col-sm-offset-3 servicesWrapper">
+                            <!-- Section Title -->
+                            <div class="section-title">
+                                <h2><span>02</span>ACTIVIDAD ACADÉMICA</h2>
+                            </div><!-- end Section Title -->
+                            
+                            <!-- Service box 1 -->
+                            <form>
+                                <div>
+                                    <div>
+                                        <p>Nombramiento de profesor titular/ contrato tiempo completo de pre y posgrado</p>
+                                        <div style="width:50%">
+                                            <select name="a_nombra" id="a_nombra" class="form-control input-sm">
+                                                <option value='0' selected>Seleccione...</option>
+                                                <option value='5'>SI</option>
+                                                <option value='0'>NO</option>
+                                            </select> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <!-- Service box 2 -->
+                                <div >
+                                    <div>
+                                        <p>Nombramiento de profesor adjunto/ contrato ocasional de pre y posgrado</p>
+                                        <div style="width:50%">
+                                        <select name="a_nombra2" id="a_nombra2" class="form-control input-sm">
+                                            <option value='0' selected>Seleccione...</option>
+                                            <option value='5'>SI</option>
+                                            <option value='0'>NO</option>
+                                        </select> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <!-- Service box 3 -->
+                                <div >
+                                    <div>
+                                        <p>Profesor invitado; profesor asociado, conferencista, en actividades de educación médica continua</p>
+                                        <div style="width:50%">
+                                        <select name="a_nombra3" id="a_nombra3" class="form-control input-sm">
+                                            <option value='0' selected>Seleccione...</option>
+                                            <option value='5'>SI</option>
+                                            <option value='0'>NO</option>
+                                        </select> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <!-- Service box 4 -->
+                                <div >
+                                    <div>
+                                        <p>Autor o coautor de libro, revista o publicación científica en revistas indexadas</p>
+                                        <div style="width:50%">
+                                        <select name="a_profe" id="a_profe" class="form-control input-sm">
+                                            <option value='0' selected>Seleccione...</option>
+                                            <option value='5'>SI</option>
+                                            <option value='0'>NO</option>
+                                        </select> 
+                                        </diV>
+                                    </div>
+                                </div>
+                                <br>
+                                <!-- end Service box 4 -->
+                                <!-- Service box 5 -->
+                                <div >
+                                    <div>
+                                        <p>Editor o coeditor de libro que corresponde al esfuerzo de un grupo de trabajo</p>
+                                        <div style="width:50%">
+                                        <select  name="a_editor" id="a_editor" class="form-control input-sm">
+                                            <option value='0' selected>Seleccione...</option>
+                                            <option value='5'>SI</option>
+                                            <option value='0'>NO</option>
+                                        </select> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <!-- end Service box 5 -->
+                                <!-- Service box 6 -->
+                                <div >
+                                    <div>
+                                        <p>Autor o coautor de Capítulos en libros </p>
+                                        <div style="width:50%">
+                                        <p>Autor</p>
+                                        <select name="a_autor" id="a_autor" class="form-control input-sm">
+                                            <option value='0' selected>Seleccione...</option>
+                                            <option value='5'>SI</option>
+                                            <option value='0'>NO</option>
+                                        </select> 
+                                        </div>
+                                        <div style="width:50%">
+                                        <p>Coautor</p>
+                                        <select name="a_coautor" id="a_coautor" class="form-control input-sm">
+                                            <option value='0' selected>Seleccione...</option>
+                                            <option value='5'>SI</option>
+                                            <option value='0'>NO</option>
+                                        </select> 
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <input onclick="cal_actividad()" type="button" class="btn btn-primary" value="CALCULAR" id="btn_actividad">
+                                        <br><br>
+                                        <strong><p>TOTAL</p></strong>
+                                        <label id="a_tot1"></label>
+                                    </div>
+                                    
+                                </div>
+                            </form>
+                            <br>
+                            <!-- end Service box 4 -->
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end container -->
+            </div>
+        </section>
+        <!-- end Services section -->
+
+        <!-- Portfolio section -->
+        <section id="educacion" style="background-color:  #dcdcdc;">
+            <div class="portfolio-background">
+                <div class="container" >
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-9 col-sm-offset-3 portfolioWrapper">
+                            <!-- Section Title -->
+                            <div class="section-title">
+                                <h2 class="pull-left" ><span>03</span>EDUCACIÓN EN HVQ</h2>
+                            </div><!-- end Section Title -->
+                            <div>
+                                <div>
+                                    <p >Sesiones de educación en su servicio del HVQ (6 por año)</p>
+                                    <br>
+                                    <form>
+                                        <div style="width:12%">
+                                            <input style="font-size: 16px;" type="number" id="e_sesiones" class="form-control input-sm" min="0" max="10">
+                                        </div>
+                                        <br>
+                                        <div>
+                                            <input onclick="cal_educacion()" type="button" class="btn btn-primary" value="CALCULAR" id="btn_actividad">
+                                            <br><br>
+                                            <strong><p>TOTAL</p></strong>
+                                            <label id="e_tot1"></label>
+                                        </div>
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div><!-- end row -->
+                </div><!-- end container -->
+            </div>
+        </section>
+        <!-- end Portfolio section -->
+
+        <!-- Resume section -->
+        <section id="cursos" style="background-color:  #dcdcdc;">
+            <div class="resume-background">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-9 col-sm-offset-3 resumeWrapper">
+                            <!-- Section Title -->
+                            <div class="section-title">
+                                <h2><span>04</span>PARTICIPACIÓN EN CURSOS Y CONGRESOS</h2>
+                            </div>
+                            <!-- end Section Title -->
+                            <div class="col-10">
+                                <form>
+                                    <div class="row">    
+                                        <div class="col-4 mt-3">
+                                            <label class="form-label" for="zip">Cursos <br>(mínimo 1 por año)</label>
+                                            <input type="number" id="p_cursos" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                            <div class="invalid-feedback">
+                                                Ingrese la nota
+                                            </div>
+                                        </div>
+                                        <div class="col-4 mt-3">
+                                            <label class="form-label" for="zip">Congresos <br>(mínimo 1 por año)</label>
+                                            <input type="number" id="p_talleres" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                            <div class="invalid-feedback">
+                                                Ingrese la nota
+                                            </div>
+                                        </div>
+                                        <div class="col-4 mt-3">
+                                            <label class="form-label" for="zip">Talleres <br>(mínimo 1 por año)</label>
+                                            <input type="number" id="p_congresos" class="form-control"  required min="0" max="10" style="font-size: 16px;">
+                                            <div class="invalid-feedback">
+                                                Ingrese la nota
+                                            </div>
+                                        </div>
+                                        <div class="col-4 mt-3">
+                                            <label class="form-label" for="zip">Seminarios <br>(mínimo 1 por año)</label>
+                                            <input type="number" id="p_seminarios" class="form-control"  required min="0" max="10" style="font-size: 16px;">
+                                            <div class="invalid-feedback">
+                                                Ingrese la nota
+                                            </div>
+                                        </div>
+                                        <div class="col-8 mt-3">
+                                            <label class="form-label" for="zip">Cursos obligatorios vigentes generales (BLS, ATLS, ACLS, ALSO) y propios de la especialidad</label>
+                                            <input type="number" id="p_obligatorios" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                            <div class="invalid-feedback">
+                                                Ingrese la nota
+                                            </div>
+                                        </div>
+                                        <div class="col-4 mt-3">
+                                            <label class="form-label" for="zip">Cursos por medios electrónicos <br> (mínimo 1 por año)</label>
+                                            <input type="number" id="p_electronicos" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                            <div class="invalid-feedback">
+                                                Ingrese la nota
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div>
+                                            <input onclick="cal_participacion()" type="button" class="btn btn-primary" value="CALCULAR" id="btn_actividad">
+                                            <br><br>
+                                            <strong><p>TOTAL</p></strong>
+                                            <label id="p_tot1"></label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                    </div><!-- end row -->
+                </div><!-- end container -->
+            </div>
+        </section>
+        <!-- end Resume section -->
+
+        <!-- Blog section -->
+        <section id="academia" style="background-color:  #dcdcdc;">
+            <div class="blog-background">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-9 col-sm-offset-3 blogWrapper">
+                            <!-- Section Title -->
+                            <div class="section-title">
+                                <h2><span>05</span>PARTICIPACIÓN EN ACTIVIDADES DE LA ACADEMIA BRUCKNER</h2>
+                            </div><!-- end Section Title -->
+                            <table>
+                                <form action="">
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip">Tutoría en Servicio <br> (hospitalización, quirófano emergencias)</label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input type="number" id="pb_hospi" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip">Tutoría en Servicio <br>(consulta externa)</label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input type="number" id="pb_consulta" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip">Programación  académica mensual</label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input type="number" id="pb_progra" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip">Miércoles Docentes (coordinador o asistente) <br> o asistente a Grand Round (50% de los organizados)</label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input type="number" id="pb_miercoles" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip">Talleres</label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input type="number" id="pb_talleres" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip">Perlas, Webinar, Otros</label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input type="number" id="pb_perlas" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input onclick="cal_academia()" type="button" class="btn btn-primary" value="CALCULAR" id="btn_actividad">
+                                            <br><br>
+                                            <strong><p>TOTAL</p></strong>
+                                            <label id="pb_tot1"></label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+                                </form>
+                            </table>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end container -->
+            </div>
+        </section>
+        <!-- end Blog section -->
+
+        <!-- Testimonial section -->
+        <section id="bibliotecas" style="background-color:  #dcdcdc;">
+            <div class="testimonial-background">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-9 col-sm-offset-3 testimonialWrapper">
+                            <!-- Section Title -->
+                            <div class="section-title">
+                                <h2><span>06</span>SUSCRIPCION EN BLIBLIOTECAS VIRTUALES</h2>
+                            </div><!-- end Section Title -->
+                            <table>
+                                <form action="">
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip">Cada médico tratante debera tener <br>al menos una suscripción en bibliotecas virtuales</label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input type="number" id="s_medico" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip">Actividades académicas con puntos CME acreditados <br> (colegio americano de cirujanos, SESAP,Uptodate) </label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input type="number" id="s_actividades" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input onclick="cal_suscripcion()" type="button" class="btn btn-primary" value="CALCULAR" id="btn_actividad">
+                                            <br><br>
+                                            <strong><p>TOTAL</p></strong>
+                                            <label id="s_tot1"></label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+                                </form>
+                            </table>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end container -->
+            </div>
+        </section>
+        <!-- end Testimonial section -->
+
+        <!-- Contact section -->
+        <section id="otros" style="background-color:  #dcdcdc;">
+            <div class="contact-background">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-8 col-sm-offset-3 contactWrapper">
+                            <!-- Section Title -->
+                            <div class="section-title">
+                                <h2><span>07</span>OTROS</h2>
+                            </div><!-- end Section Title -->
+                            <form action="">
+                                <table>
+                
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip">Ausencia de quejas que han generado una sanción<br/> (10 y se disminuirá 10 por cada una)</label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input type="number" id="o_quejas" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip">Ausencia de auditorías Internas con sanción <br> (10 y se disminuirá10 por cada una)</label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input type="number" id="o_auditorias" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip" style="color:  #900c3f ">Cumplimiento en consulta externa</label>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Puntulidad</label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input type="number" id="o_puntualidad" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Asistencia</label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input type="number" id="o_asistencia" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                            
+                                        </td>
+                                        
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+                                    
+
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip">Respuesta a los turnos de llamada emergencias e interconsultas</label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input type="number" id="o_respuesta" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip" style="color:  #900c3f ">Respuesta a los turnos de llamada emergencias e interconsultas</label>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Más de 10 pacientes por año</label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input type="number" id="o_paci_mas10" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;De 5 a 9 pacientes por año</label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input type="number" id="o_paci_5-9" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Menos de 5 pacientes por año</label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input type="number" id="o_paci_menos5" class="form-control" min="0" max="10" required style="font-size: 16px;">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip">VINCULACION CON LA COMUNIDAD</label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <select name="o_vinculacion" id="o_vinculacion" class="form-control input-sm">
+                                                <option value='0' selected>Seleccione...</option>
+                                                <option value='5'>SI</option>
+                                                <option value='0'>NO</option>
+                                            </select> 
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="zip">JEFES DE SERVICIO MEDICO</label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <select name="o_jefes" id="o_jefes" class="form-control input-sm">
+                                                <option value='0' selected>Seleccione...</option>
+                                                <option value='5'>SI</option>
+                                                <option value='0'>NO</option>
+                                            </select> 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <input onclick="cal_otros()" type="button" class="btn btn-primary" value="CALCULAR" id="btn_actividad">
+                                            <br><br>
+                                            <strong><p>TOTAL</p></strong>
+                                            <label id="o_tot1"></label>
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+                                </table>
+
+                            </form>
+                        </div>
+                    </div><!-- end row -->
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-9 col-sm-offset-3 contactWrapper">
+                            <div style="text-align: center">
+                                <input onclick="revisar()" id="btn_save" type="submit" class="btn btn-danger" value="REVISAR" />
+                            </div>
+                        </div>    
+                        
+                    </div>
+                    <br><br>
+                </div><!-- end container -->
+            </div>
+        </section>
+        
+    </body>
+</html>

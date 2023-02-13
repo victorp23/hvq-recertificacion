@@ -1,0 +1,50 @@
+ {% extends "layout.html" %}
+
+{% block content %}
+
+    <title></title>
+    <link rel="stylesheet" href="{{url_for('static', filename='content/css/inicio.css')}}">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="inicio.css">
+
+    <body>
+    <br>
+<br>
+    
+    <div class="row1-container">
+    
+        
+
+        <div class="box red">
+            <button style="background-color: transparent; border:none;" onclick="location.href='http://10.129.180.129:8081/panelHospiSML'">
+                <h4>SIMULACIÓN</h4>
+                
+                <img src="https://cdn-icons-png.flaticon.com/512/4099/4099270.png" alt="" width="80" height="80">
+            </button>
+        </div>
+        
+        <div class="box blue">
+            <button style="background-color: transparent; border:none;" onclick="location.href='http://10.129.180.129:8081/panelHospi'">
+                <h4>ENTRENAMIENTO</h4>
+                
+                <img src="https://cdn-icons-png.flaticon.com/128/3475/3475156.png" alt="" width="80" height="80">
+            </button>
+        </div>
+        
+        <div class="box orange">
+            <button style="background-color: transparent; border:none;" onclick="location.href=''">
+                <h4>PRODUCCIÓN</h4>
+                
+                <img src="https://cdn-icons-png.flaticon.com/512/4365/4365132.png" alt="" width="80" height="80">
+            </button>
+        </div>
+
+    </div>
+<br><br>
+    
+
+    </body>
+
+ {% endblock %}

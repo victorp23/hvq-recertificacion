@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='content/css/forms/homeR.css')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{url_for('static', filename='content/img/logo_hvq.png')}}" />
+    <title>RECERTIFICACION MEDICA</title>
+    <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css"/>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+</head>
+<body>
+<div class="principal">
+    
+    <!-- =============== Navigation ================ -->
+    <div class="container2">
+        <div class="navigation2">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <img src="https://i.ibb.co/12xH3dT/image.png" alt="" style="height: 50%; width: 50%;" >
+                        </span>
+                        <span class="title">Recertificación</span>
+                    </a>
+                    <a href="#">
+                        <span class="icon">
+                            <img src="https://cdn-icons-png.flaticon.com/128/9386/9386866.png" alt="" style="height: 50%; width: 50%; border-radius: 50%" >
+                        </span>
+                        
+                        <span class="title" style="font-size:11px">{{session["name"]}}</span>
+                    </a>
+                </li>
+                
+                {%if session["rol"] == 'Admin'%}
+                    <li>
+                        <a href="/homeR">
+                            <span class="icon">
+                                <ion-icon name="home-outline"></ion-icon>
+                            </span>
+                            <span class="title">Panel</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/medicosR">
+                            <span class="icon">
+                                <ion-icon name="people-outline"></ion-icon>
+                            </span>
+                            <span class="title">Médicos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="icon">
+                                <ion-icon name="school-outline"></ion-icon>
+                            </span>
+                            <span class="title">Calificaciones</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="icon">
+                                <ion-icon name="settings-outline"></ion-icon>
+                            </span>
+                            <span class="title">Configuraciones</span>
+                        </a>
+                    </li>
+                {%elif session["rol"] == 'Medico'%}
+
+                <li>
+                    <a href="/act_academica">
+                        <span class="icon">
+                            <ion-icon name="reader-outline"></ion-icon>
+                        </span>
+                        <span class="title">Actividad en Académcia</span>
+                    </a>
+                </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="icon">
+                                <ion-icon name="school-outline"></ion-icon>
+                            </span>
+                            <span class="title">Calificaciones</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="icon">
+                                <ion-icon name="settings-outline"></ion-icon>
+                            </span>
+                            <span class="title">Configuraciones</span>
+                        </a>
+                    </li>
+                {%endif%}
+
+                <li>
+                    <a href="/cerrarS">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Salir</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+        <div class="topbar">
+        <div class="toggle">
+            <ion-icon name="menu-outline"></ion-icon>
+        </div>
+
+        <div >
+            <div class="user"></div>
+                <p>{{session["rol"]}}</p>
+        </div>
+    </div>
+            <br/>
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="{{url_for('static', filename='content/js/forms/homeR.js')}}"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
+

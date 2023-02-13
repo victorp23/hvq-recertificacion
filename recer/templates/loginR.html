@@ -1,0 +1,67 @@
+ {% extends "layout.html" %}
+
+{% block content %}
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'><link rel="stylesheet" href="./style.css">
+  
+<link rel="stylesheet" href="{{url_for('static', filename='content/css/loginR.css')}}">
+  
+<div class="centro">
+    <div class="container1" id="container1">
+        <div class="form-container sign-up-container">
+            <form action="{{ url_for('register') }}" method="post">
+                <h1 class="h1-login">Crear Cuenta</h1><br>
+                <input name="cedula1" type="text" placeholder="Cedula" />
+                <input name="email" type="email" placeholder="Email" />
+                <input name="password1" type="password" placeholder="Password" />
+                <br>
+                <button>Registrar</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            
+            <form action="{{ url_for('loginR') }}" method="post">
+                <h1 class="h1-login">Iniciar Sesión</h1>
+                
+                <br>
+                <div style="color:red" class="msg">{{ msg }}</div>
+                <br>
+                <input name="cedula" type="text" placeholder="Cedula" id="cedula" />
+                
+                <input name="password" type="password" placeholder="Password" id="password"/>
+                <a class="a-login" href="#">Forgot your password?</a>
+                <button>Ingresar</button>
+                <!--<input type="submit" class=" ghost" value="Sign In"></br></br>-->
+            </form>
+            
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1 class="h1-login">Bienvenido</h1>
+                    <p>Para ingresar al sistema, inicie sesión con su información personal</p>
+                    <button class="ghost" id="signIn">Iniciar Sesión</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1 class="h1-login">Hola</h1>
+                    <p>Si no tienes cuenta puedes crear una.</p>
+                    <button class="ghost" id="signUp">Registrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+	const signUpButton = document.getElementById('signUp');
+	const signInButton = document.getElementById('signIn');
+	const container = document.getElementById('container');
+
+	signUpButton.addEventListener('click', () => {
+		container1.classList.add("right-panel-active");
+	});
+
+	signInButton.addEventListener('click', () => {
+		container1.classList.remove("right-panel-active");
+	});
+</script>
+ {% endblock %}

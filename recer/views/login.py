@@ -7,7 +7,10 @@ import requests
 from flask_session import Session
 from tempfile import mkdtemp
 from recer import conexion
+from PIL import Image
+from werkzeug.utils import secure_filename
 import mysql.connector
+import base64
 from recer import app
 
 def connectionBD():
@@ -20,9 +23,7 @@ def connectionBD():
     )
     return mydb
 
-
-# --------------------------------------------------------------------------------------------------------------------------------------
-
+#LOGIN -------------------------------------------------------------------------------------------------
 @app.route("/loginR", methods=['GET', 'POST'])
 def loginR():
     msg = ''
@@ -32,21 +33,26 @@ def loginR():
         mysql = connectionBD()
         cursor = mysql.cursor()
         cursor.execute(
-            "SELECT u.cedula, u.passUser, u.nameUser, r.nameRol FROM user u, rol r, user_rol ur WHERE ur.user = u.cedula and r.idRol = ur.rol and cedula = '" + cedula + "'AND passUser = '" + password + "'")
+            "SELECT u.cedula, u.passUser, u.nameUser, r.nameRol, u.mailUser, u.imgUser1 FROM user u, rol r, user_rol ur WHERE ur.user = u.cedula and r.idRol = ur.rol and cedula = '" + cedula + "'AND passUser = '" + password + "'")
         account = cursor.fetchone()
         if account:
-            session['rol'] = account[3]
+            session['cedula'] = account[0]
             session['name'] = account[2]
+            session['rol'] = account[3]
+            session['mail'] = account[4]
+            session['foto'] = base64.b64encode(account[5]).decode('utf-8')
+
             if session['rol'] == 'Admin':
                 msg = 'Logged in successfully !'
                 return render_template('/forms/homeR.html')
             elif session['rol'] == 'Medico':
-                return render_template('/forms/medicoHome.html', msg=msg)
+                return render_template('/forms/medico/medicoHome.html', msg=msg)
         else:
             msg = 'Cedula o clave incorecta!'
+
     return render_template('loginR.html', msg=msg, year=datetime.now().year)
 
-
+#REGISTRAR ----------------------------------------------------------------------------------------------
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     msg = ''
@@ -61,7 +67,7 @@ def register():
         cursor.execute("SELECT cedula FROM user WHERE cedula = '" + cedula + "'")
         account = cursor.fetchone()
         if account:
-            msg = ' El usuario ya existe!'
+            msg = 'El usuario ya existe!'
         else:
             conn = conexion.connectionPRD()
             cursor12 = conn.cursor()
@@ -71,66 +77,41 @@ def register():
                 validar.append(row[0])
                 validar.append(row[1])
             if not validar:
-                msg = 'El usuario no se encuentra en el sistema PEP'
+                msg = 'El usuario no se encuentra registrado en el sistema SOUL MV'
             else:
                 cursor.execute(
                     "insert into user (cedula, nameUser, mailUser, passUser) values ('" + cedula + "', '" + validar[
-                        1] + "', '" + email + "', '" + password + "' )")
+                        1] + "', '" + email + "', '" + password + "')")
+                mysql.commit()
+
+                cursor.execute("insert into user_rol (rol, user) values (8,'"+validar[1]+"')")
                 mysql.commit()
                 msg = 'Cuenta creada con exito!'
     return render_template('loginR.html', msg=msg)
 
-
+# CERRAR SESSION ------------------------------------------------------------------------------------------
 @app.route('/cerrarS')
 def cerrarS():
     session.pop('rol', None)
     session.pop('name', None)
+    session.pop('cedula', None)
+    session.pop('foto', None)
+    session.pop('mail', None)
     session.clear()
     return redirect(url_for('loginR'))
 
 
-@app.route("/act_academica")
-def act_academica():
-    if 'rol' in session:
-        return render_template('/forms/act_acad.html', year=datetime.now().year)
-    else:
-        return render_template('loginR.html')
-
-
-@app.route("/homeR")
-def homeR():
-    if 'rol' in session:
-        return render_template('/forms/homeR.html', year=datetime.now().year)
-    else:
-        return render_template('loginR.html')
-
-
-@app.route('/medicosR')
-def medicosR():
-    if not 'rol' in session:
-        return redirect(url_for("loginR"))
-    else:
-        if session['rol'] == 'Admin':
-            medicos = []
-            con = conexion.connectionPRD()
-            cursor = con.cursor()
-            cursor.execute("""
-                        SELECT CD_PRESTADOR, NM_PRESTADOR,
-                        CASE
-                            WHEN DS_EMAIL IS NOT NULL THEN DS_EMAIL
-                            WHEN DS_EMAIL IS NULL THEN 'NO'
-                        END,
-                        TP_SITUACAO
-                        FROM PRESTADOR
-                        WHERE CD_TIP_PRESTA = 8
-                        ORDER BY NM_PRESTADOR
-            """)
-            for row in cursor.fetchall():
-                medicos.append({"cd": row[0], "nombre": row[1], "email": row[2], "estado": row[3]})
-            con.close()
-            return render_template('/forms/MedicosR.html', medicos=medicos, year=datetime.now().year)
-        else:
-            return redirect(url_for("loginR"))
+@app.route('/actualizar_sesion')
+def actualizar_sesion():
+    mysql = connectionBD()
+    cursor = mysql.cursor()
+    cursor.execute(
+        "SELECT u.imgUser1 FROM user u WHERE  cedula = '" + session['cedula'] + "'")
+    img = cursor.fetchone()
+    if img:
+        session.pop('foto', None)
+        session['foto'] = base64.b64encode(img[0]).decode('utf-8')
+        return session['foto']
 
 
 # ---------------LOGIN CON 365 ----------------------------------------------------------------------------------
@@ -167,20 +148,3 @@ def login():
     #return render_template("login.html", auth_url=session["flow"]["auth_uri"], version=msal.__version__, year=datetime.now().year)
     return render_template("login.html", year=datetime.now().year)
 
-@app.route('/viewP/<id>', methods=['GET'])
-def viewP(id):
-    if not session.get("user"):
-        return redirect(url_for("inicioN"))
-    else:
-        medico = []
-        con = conexion.connectionPRD()
-        cursor = con.cursor()
-        cursor.execute("""
-                        SELECT CD_PRESTADOR, NM_PRESTADOR
-                        from PRESTADOR
-                        where CD_PRESTADOR = 
-                    """ + id)
-        for row in cursor.fetchall():
-            medico.append({"cd": row[0], "nombre": row[1]})
-        con.close()
-        return render_template('viewP.html', medico=medico)

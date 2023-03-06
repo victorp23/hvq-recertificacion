@@ -1,0 +1,294 @@
+{% extends "templateR.html" %}
+
+{% block content %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='content/css/forms/act_academica.css')}}">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+    <div class="details">
+        <div class="recentOrders">
+            <div class="cardHeader">
+                <h2>Actividad Académica</h2>  
+            </div>
+
+            <div id="multi-step-form-container">
+            <!-- Form Steps / Progress Bar -->
+                <ul class="form-stepper form-stepper-horizontal text-center mx-auto pl-0">
+                    <!-- Step 1 -->
+                    <li class="form-stepper-active text-center form-stepper-list" step="1">
+                        <a class="mx-2">
+                            <span class="form-stepper-circle">
+                                <span>1</span>
+                            </span>
+                        </a>
+                    </li>
+                    <!-- Step 2 -->
+
+                    <li class="form-stepper-unfinished text-center form-stepper-list" step="2">
+                        <a class="mx-2">
+                            <span class="form-stepper-circle text-muted">
+                                <span>2</span>
+                            </span>
+                        </a>
+                    </li>
+
+                    <!-- Step 3 -->
+                    <li class="form-stepper-unfinished text-center form-stepper-list" step="3">
+                        <a class="mx-2">
+                            <span class="form-stepper-circle text-muted">
+                                <span>3</span>
+                            </span>
+                        </a>
+                    </li>
+
+                    <!-- Step 4 -->
+                    <li class="form-stepper-unfinished text-center form-stepper-list" step="4">
+                        <a class="mx-2">
+                            <span class="form-stepper-circle text-muted">
+                                <span>4</span>
+                            </span>
+                        </a>
+                    </li>
+
+                    <!-- Step 5 -->
+                    <li class="form-stepper-unfinished text-center form-stepper-list" step="5">
+                        <a class="mx-2">
+                            <span class="form-stepper-circle text-muted">
+                                <span>5</span>
+                            </span>
+                        </a>
+                    </li>
+
+                    <!-- Step 6 -->
+                    <li class="form-stepper-unfinished text-center form-stepper-list" step="6">
+                        <a class="mx-2">
+                            <span class="form-stepper-circle text-muted">
+                                <span>6</span>
+                            </span>
+                        </a>
+                    </li>
+
+                    <!-- Step 7 -->
+                    <li class="form-stepper-unfinished text-center form-stepper-list" step="7">
+                        <a class="mx-2">
+                            <span class="form-stepper-circle text-muted">
+                                <span>
+                                    <ion-icon name="flag"></ion-icon>
+                                </span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Step Wise Form Content -->
+                <form id="form_act_academica" name="form_act_academica" enctype="multipart/form-data" method="POST">
+                    <!-- Step 1 -->
+                    <section id="step-1" class="form-step">
+                        <h3 class="font-normal">Nombramiento de profesor titular / contrato tiempo completo de pre y postgrado</h3>
+                        <div class="mt-3">
+                            <label class="form-label" for="step1_titulo1">Nombre del Título:</label>
+                            <input id="step1_titulo1" name="step1_titulo1" class="form-control" type="text" value=""/>
+                        </div>
+                        <div class="mt-3">
+                            <label for="step1_file1" class="form-label">Nombramiento</label>
+                            <input id="step1_file1" name="step1_file1" class="form-control" required multiple="" size="6000" type="file" accept="application/pdf,image/x-png,image/gif,image/jpeg,image/jpg,image/tiff">
+                        </div>
+                        <div class="mt-3">
+                            <label for="step1_desde1" class="form-label">Desde:</label>
+                            <input id="step1_desde1" name="step1_desde1" class="form-control form-control-sm" type="date"/>
+                            <br>
+                            <label for="step1_hasta1" class="form-label">Hasta:</label>
+                            <input id="step1_hasta1" name="step1_hasta1" class="form-control form-control-sm" type="date"/>
+                        </div>
+                        <div class="mt-3">
+                            <input type="button" value="Añadir" class="btn btn-primary" onclick="addRow()"/>
+                            <div id="newRow"></div>
+                        </div>
+                        <div class="mt-3" style="text-align: center">
+                            <button class="button btn-navigate-form-step" type="button" step_number="2">Siguiente</button>
+                        </div>
+                    </section>
+
+                    <!-- Step 2  -->
+                    <section id="step-2" class="form-step d-none">
+                        <h3 class="font-normal">Nombramiento de profesor adjunto / contrato ocacional de pre y postgrado</h3>
+                        <div class="mt-3">
+                            <label for="step2_titulo1" class="form-label">Nombre del Título:</label>
+                            <input id="step2_titulo1" name="step2_titulo1" class="form-control" type="text" value=""/>
+                        </div>
+                        <div class="mt-3">
+                            <label for="step2_file1" class="form-label">Nombramiento</label>
+                            <input id="step2_file1" name="step2_file1" class="form-control" required multiple="" name="invoice[]" size="6000" type="file" accept="application/pdf,image/x-png,image/gif,image/jpeg,image/jpg,image/tiff">
+                        </div>
+                        <div class="mt-3">
+                            <label for="step2_desde1" class="form-label">Desde:</label>
+                            <input id="step2_desde1" name="step2_desde1" class="form-control form-control-sm" type="date" aria-describedby="label-cir_start" />
+                            <br>
+                            <label for="step2_hasta1" class="form-label">Hasta:</label>
+                            <input id="step2_hasta1" name="step2_hasta1" class="form-control form-control-sm" type="date" aria-describedby="label-cir_start" />
+                        </div>
+                        <div class="mt-3">
+                            <input type="button" value="Añadir" class="btn btn-primary" onclick="addRow2()"/>
+                            <div id="newRow2"></div>
+                        </div>
+                        <div class="mt-3" style="text-align: center">
+                            <button class="button btn-navigate-form-step" type="button" step_number="1">Regresar</button>
+                            <button class="button btn-navigate-form-step" type="button" step_number="3">Siguiente</button>
+                        </div>
+                    </section>
+
+                    <!-- Step 3 -->
+                    <section id="step-3" class="form-step d-none">
+                        <h3 class="font-normal">Profesor invitado; profesor asociado, conferencista, en actividades de educacion medica continua</h3>
+                        <!-- Step 3 input fields -->
+                        <div class="mt-3">
+                            <label for="step3_titulo1" class="form-label">Nombre del Título:</label>
+                            <input id="step3_titulo1" name="step3_titulo1" class="form-control" type="text" value=""/>
+                        </div>
+                        <div class="mt-3">
+                            <label for="step3_file1" class="form-label">Nombramiento</label>
+                            <input id="step3_file1" name="step3_file1" class="form-control" required multiple="" name="invoice[]" size="6000" type="file" accept="application/pdf,image/x-png,image/gif,image/jpeg,image/jpg,image/tiff">
+                        </div>
+                        <div class="mt-3">
+                            <label for="step3_desde1" class="form-label">Desde:</label>
+                            <input id="step3_desde1" name="step3_desde1" class="form-control form-control-sm" type="date" aria-describedby="label-cir_start" />
+                            <br>
+                            <label for="step3_hasta1" class="form-label">Hasta:</label>
+                            <input id="step3_hasta1" name="step3_hasta1" class="form-control form-control-sm" type="date" aria-describedby="label-cir_start" />
+                        </div>
+                        <div class="mt-3">
+                            <input type="button" value="Añadir" class="btn btn-primary" onclick="addRow3()"/>
+                            <div id="newRow3"></div>
+                        </div>
+                        <div class="mt-3" style="text-align: center">
+                            <button class="button btn-navigate-form-step" type="button" step_number="2">Regresar</button>
+                            <button class="button btn-navigate-form-step" type="button" step_number="4">Siguiente</button>
+                        </div>
+                    </section>
+
+                    <!-- Step 4 -->
+                    <section id="step-4" class="form-step d-none">
+                        <h3 class="font-normal">Autor o coautor de libro, revita o publicación cientifica en revistas indexadas</h3>
+                        <!-- Step 4 input fields -->
+                        <div class="mt-3">
+                            <label for="step4_nombramiento1" class="form-label">Nombramiento:</label>
+                            <select id="step4_nombramiento1" name="step4_nombramiento1" class="form-control">
+                                <option selected disabled value="">Seleccione..</option>
+                                <option>Autor</option>
+                                <option>Coautor</option>
+                            </select>
+                        </div>
+                        <div class="mt-3">
+                            <label for="step4_nombre1" class="form-label">Título del libro, revista o publicación</label>
+                            <input id="step4_nombre1" name="step4_nombre1" class="form-control" required multiple="" type="text">
+                        </div>
+                        <div class="mt-3">
+                            <label for="step4_isbn1" class="form-label">ISBN</label>
+                            <input id="step4_isbn1" name="step4_isbn1" class="form-control" type="text"/>
+                            <br>
+                            <label for="step4_fecha1" class="form-label">Fecha de publicación:</label>
+                            <input id="step4_fecha1" name="step4_fecha1" class="form-control form-control-sm" type="date"/>
+                        </div>
+                        <div class="mt-3">
+                            <input type="button" value="Añadir" class="btn btn-primary" onclick="addRow4()"/>
+                            <div id="newRow4"></div>
+                        </div>
+                        <div class="mt-3" style="text-align: center">
+                            <button class="button btn-navigate-form-step" type="button" step_number="3">Regresar</button>
+                            <button class="button btn-navigate-form-step" type="button" step_number="5">Siguiente</button>
+                        </div>
+                    </section>
+
+                    <!-- Step 5 -->
+                    <section id="step-5" class="form-step d-none">
+                        <h3 class="font-normal">Editor o coeditor de libro que corresponde al esfuerzo de un grupo de trabajo</h3>
+                        <!-- Step 5 input fields -->
+                        <div class="mt-3">
+                            <label for="step5_nombramiento1" class="form-label">Nombramiento:</label>
+                            <select id="step5_nombramiento1" name="step5_nombramiento1" class="form-control">
+                                <option selected disabled value="">Seleccione..</option>
+                                <option>Edittor</option>
+                                <option>Coeditor</option>
+                            </select>
+                        </div>
+                        <div class="mt-3">
+                            <label for="step5_nombre1" class="form-label">Título:</label>
+                            <input id="step5_nombre1" name="step5_nombre1" class="form-control" required multiple="" type="text">
+                        </div>
+                        <div class="mt-3">
+                            <label for="step5_grupo1" class="form-label">Grupo de trabajo:</label>
+                            <input id="step5_gupo1" name="step5_grupo1" class="form-control" type="text"/>
+                            <br>
+                            <label for="step5_fecha1" class="form-label">Fecha de participación:</label>
+                            <input id="step5_fecha1" name="step5_fecha1" class="form-control form-control-sm" type="date"/>
+                        </div>
+                        <div class="mt-3">
+                            <input type="button" value="Añadir" class="btn btn-primary" onclick="addRow5()"/>
+                            <div id="newRow5"></div>
+                        </div>
+                        <div class="mt-3" style="text-align: center">
+                            <button class="button btn-navigate-form-step" type="button" step_number="4">Regresar</button>
+                            <button class="button btn-navigate-form-step" type="button" step_number="6">Siguiente</button>
+                        </div>
+                    </section>
+
+                    <!-- Step 6 -->
+                    <section id="step-6" class="form-step d-none">
+                        <h3 class="font-normal">Autor o coautor de capítulos en libros</h3>
+                        <!-- Step 6 input fields -->
+                        <div class="mt-3">
+                            <label for="step6_nombramiento1" class="form-label">Nombramiento:</label>
+                            <select id="step6_nombramiento1" name="step6_nombramiento1" class="form-control">
+                                <option selected disabled value="">Seleccione..</option>
+                                <option>Autor</option>
+                                <option>Coautor</option>
+                            </select>
+                        </div>
+                        <div class="mt-3">
+                            <label for="step6_nombre1" class="form-label">Título del libro:</label>
+                            <input id="step6_nombre1" name="step6_nombre1" class="form-control" required multiple="" type="text">
+                        </div>
+                        <div class="mt-3">
+                            <label for="step6_cap1" class="form-label">Capítulos:</label>
+                            <input id="step6_cap1" name="step6_cap1" class="form-control" type="text"/>
+                            <br>
+                            <label for="step6_fecha1" class="form-label">Fecha de publicación:</label>
+                            <input id="step6_fecha1" name="step6_fecha1" class="form-control form-control-sm" type="date"/>
+                        </div>
+                        <div class="mt-3">
+                            <input type="button" value="Añadir" class="btn btn-primary" onclick="addRow6()"/>
+                            <div id="newRow6"></div>
+                        </div>
+                        <div class="mt-3" style="text-align: center">
+                            <button class="button btn-navigate-form-step" type="button" step_number="5">Regresar</button>
+                            <button class="button btn-navigate-form-step" type="button" step_number="7">Siguiente</button>
+                        </div>
+                    </section>
+
+                    <!-- Step 7 -->
+                    <section id="step-7" class="form-step d-none">
+                        <h3 class="font-normal">Registro Completo</h3>
+                        <!-- Step 6 input fields -->
+
+                        <div class="mt-3" style="text-align: center">
+                            <button class="button btn-navigate-form-step" type="button" step_number="6">Regresar</button>
+                            <button class="button btn-navigate-form-step" type="button" onclick="guardar()">Guardar</button>
+                        </div>
+                    </section>
+                </form>
+            </div>
+            <script src="{{url_for('static', filename='content/js/forms/act_academica.js')}}"></script>
+        </div>
+        <br>
+        <p>&copy; {{ year }} - TIC'S - HOSPITAL VOZANDES QUITO HVQ S.A</p>
+    </div>
+
+{% endblock %}
+
+

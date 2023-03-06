@@ -79,7 +79,7 @@ function addRow() {
 	step1_cont = step1_cont + 1;
 	html = `<div id="creado"><br>
 				<div class="mt-3">
-					<label for="step1_titulo`+step1_cont+`" class="form-label">Nombre del Titulo:</label>
+					<label for="step1_titulo`+step1_cont+`" class="form-label">Nombre del Título:</label>
 					<input id="step1_titulo`+step1_cont+`" name="step1_titulo`+step1_cont+`" class="form-control" type="text" value=""/>
 				</div>
 				<div class="mt-3">
@@ -119,7 +119,7 @@ function addRow2() {
 	step2_cont = step2_cont + 1;
 	html = `<div id="creado2"><br>
 				<div class="mt-3">
-					<label for="step2_titulo`+step2_cont+`" class="form-label">Nombre del Titulo:</label>
+					<label for="step2_titulo`+step2_cont+`" class="form-label">Nombre del Título:</label>
 					<input id="step2_titulo`+step2_cont+`" name="step2_titulo`+step2_cont+`" class="form-control" type="text" value=""/>
 				</div>
 				<div class="mt-3">
@@ -159,7 +159,7 @@ function addRow3() {
 	step3_cont = step3_cont + 1;
 	html = `<div id="creado3"><br>
 				<div class="mt-3">
-					<label for="step3_titulo`+step3_cont+`" class="form-label">Nombre del Titulo:</label>
+					<label for="step3_titulo`+step3_cont+`" class="form-label">Nombre del Título:</label>
 					<input id="step3_titulo`+step3_cont+`" name="step3_titulo`+step3_cont+`" class="form-control" type="text" value=""/>
 				</div>
 				<div class="mt-3">
@@ -207,14 +207,14 @@ function addRow4() {
 			</select>
 			</div>
 		<div class="mt-3">
-			<label for="step4_nombre`+step4_cont+`" class="form-label">Titulo del libro, revista o publicacion</label>
+			<label for="step4_nombre`+step4_cont+`" class="form-label">Título del libro, revista o publicación</label>
 			<input id="step4_nombre`+step4_cont+`" name="step4_nombre`+step4_cont+`" class="form-control" required multiple="" type="text">
 		</div>
 		<div class="mt-3">
-			<label for="step4_isbn`+step4_cont+`" class="form-label">Isbn</label>
+			<label for="step4_isbn`+step4_cont+`" class="form-label">ISBN</label>
 			<input id="step4_isbn`+step4_cont+`" name="step4_isbn`+step4_cont+`" class="form-control" type="text"/>
 			<br>
-			<label for="step4_fecha`+step4_cont+`" class="form-label">Fecha de publicacion:</label>
+			<label for="step4_fecha`+step4_cont+`" class="form-label">Fecha de publicación:</label>
 			<input id="step4_fecha`+step4_cont+`" name="step4_fecha`+step4_cont+`" class="form-control form-control-sm" type="date"/>
 		</div>
 		<div class="input-group-append">
@@ -251,14 +251,14 @@ function addRow5() {
 			</select>
 		</div>
 		<div class="mt-3">
-			<label for="step5_nombre`+step5_cont+`" class="form-label">Titulo:</label>
+			<label for="step5_nombre`+step5_cont+`" class="form-label">Título:</label>
 			<input id="step5_nombre`+step5_cont+`" name="step5_nombre`+step5_cont+`" class="form-control" required multiple="" type="text">
 		</div>
 		<div class="mt-3">
 			<label for="step5_grupo`+step5_cont+`" class="form-label">Grupo de trabajo:</label>
 			<input id="step5_gupo`+step5_cont+`" name="step5_grupo`+step5_cont+`" class="form-control" type="text"/>
 			<br>
-			<label for="step5_fecha`+step5_cont+`" class="form-label">Fecha de participacion:</label>
+			<label for="step5_fecha`+step5_cont+`" class="form-label">Fecha de participación:</label>
 			<input id="step5_fecha`+step5_cont+`" name="step5_fecha`+step5_cont+`" class="form-control form-control-sm" type="date"/>
 		</div>
 		<div class="input-group-append">
@@ -295,14 +295,14 @@ function addRow6() {
 		</select>
 		</div>
 		<div class="mt-3">
-			<label for="step6_nombre`+step5_cont+`" class="form-label">Titulo del libro:</label>
+			<label for="step6_nombre`+step5_cont+`" class="form-label">Título del libro:</label>
 			<input id="step6_nombre`+step5_cont+`" name="step6_nombre`+step5_cont+`" class="form-control" required multiple="" type="text">
 		</div>
 		<div class="mt-3">
-			<label for="step6_cap`+step5_cont+`" class="form-label">Capitulos:</label>
+			<label for="step6_cap`+step5_cont+`" class="form-label">Capítulos:</label>
 			<input id="step6_cap`+step5_cont+`" name="step6_cap`+step5_cont+`" class="form-control" type="text"/>
 			<br>
-			<label for="step6_fecha1" class="form-label">Fecha de publicacion:</label>
+			<label for="step6_fecha1" class="form-label">Fecha de publicación:</label>
 			<input id="step6_fecha`+step5_cont+`" name="step6_fecha`+step5_cont+`" class="form-control form-control-sm" type="date"/>
 		</div>
 		<div class="input-group-append">
@@ -320,3 +320,10 @@ $(document).on('click', '#removeRow6', function () {
 	step6_cont = step6_cont - 1;
 	$(this).closest('#creado6').remove();
 });
+
+// GUARDAR
+function guardar(){
+    document.querySelectorAll('input').forEach(input => {
+        alert(input.value);
+    });
+}

@@ -31,7 +31,7 @@
 /* =============== Navigation ================ */
 .navigation2 {
   position: fixed;
-  width: 300px;
+  width: 800px;
   height: 100%;
   background: var(--hvq);
   border-left: 10px solid var(--hvq);
@@ -39,7 +39,7 @@
   overflow: hidden;
 }
 .navigation2.active {
-  width: 80px;
+  width: 90px;
 }
 
 .navigation2 ul {
@@ -63,7 +63,7 @@
 }
 
 .navigation2 ul li:nth-child(1) {
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   pointer-events: none;
 }
 
@@ -89,17 +89,18 @@
   text-align: center;
 }
 .navigation2 ul li a .icon ion-icon {
-  font-size: 1.75rem;
+  font-size: 1.65rem;
 }
 
 .navigation2 ul li a .title {
   position: relative;
   display: block;
   padding: 0 10px;
-  height: 60px;
-  line-height: 60px;
+  height: 20px;
+  line-height: 70px;
   text-align: start;
   white-space: nowrap;
+  font-size: 1.25rem;
 }
 
 
@@ -394,3 +395,6 @@
   }
 }
 
+ion-icon {
+ pointer-events: none;
+}

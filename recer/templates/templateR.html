@@ -22,26 +22,24 @@
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <img src="https://i.ibb.co/12xH3dT/image.png" alt="" style="height: 50%; width: 50%;" >
+                            <img src="https://i.ibb.co/12xH3dT/image.png" alt="Recertificación" style="height: 50%; width: 50%;" >
                         </span>
                         <span class="title">Recertificación</span>
                     </a>
                     <a href="#">
                         <span class="icon">
-                            <img src="https://cdn-icons-png.flaticon.com/128/9386/9386866.png" alt="" style="height: 50%; width: 50%; border-radius: 50%" >
+                            <img src="data:image/png;base64,{{session["foto"]}}" style="height: 50%; width: 50%; border-radius: 50%">
                         </span>
-                        
                         <span class="title" style="font-size:11px">{{session["name"]}}</span>
                     </a>
                 </li>
-                
                 {%if session["rol"] == 'Admin'%}
                     <li>
                         <a href="/homeR">
-                            <span class="icon">
-                                <ion-icon name="home-outline"></ion-icon>
+                            <span class="icon" title="Perfil">
+                                <ion-icon name="person-outline" title="Perfil"></ion-icon>
                             </span>
-                            <span class="title">Panel</span>
+                            <span class="title">Perfil</span>
                         </a>
                     </li>
 
@@ -63,24 +61,68 @@
                         </a>
                     </li>
 
+                {%elif session["rol"] == 'Medico'%}
+                    <li>
+                        <a href="/homeM">
+                            <span class="icon">
+                                <ion-icon name="person-outline"></ion-icon>
+                            </span>
+                            <span class="title">Perfil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/act_academica">
+                            <span class="icon">
+                                <ion-icon name="reader-outline"></ion-icon>
+                            </span>
+                            <span class="title">Actividad Académica</span>
+                        </a>
+                    </li>
+
+                     <li>
+                        <a href="/educacion_hvq">
+                            <span class="icon">
+                                <ion-icon name="library-outline"></ion-icon>
+                            </span>
+                            <span class="title">Educación en HVQ</span>
+                        </a>
+                    </li>
+
                     <li>
                         <a href="#">
                             <span class="icon">
-                                <ion-icon name="settings-outline"></ion-icon>
+                                <ion-icon name="calendar-outline"></ion-icon>
                             </span>
-                            <span class="title">Configuraciones</span>
+                            <span class="title">Participación en Cursos y congresos</span>
                         </a>
                     </li>
-                {%elif session["rol"] == 'Medico'%}
 
-                <li>
-                    <a href="/act_academica">
-                        <span class="icon">
-                            <ion-icon name="reader-outline"></ion-icon>
-                        </span>
-                        <span class="title">Actividad en Académcia</span>
-                    </a>
-                </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon">
+                                <ion-icon name="ribbon-outline"></ion-icon>
+                            </span>
+                            <span class="title">Participación en Academia Bruckner</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="icon">
+                                <ion-icon name="desktop-outline"></ion-icon>
+                            </span>
+                            <span class="title">Suscripción en bibliotecas virtuales</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="icon">
+                                <ion-icon name="file-tray-stacked-outline"></ion-icon>
+                            </span>
+                            <span class="title">Otros</span>
+                        </a>
+                    </li>
 
                     <li>
                         <a href="#">
@@ -91,24 +133,17 @@
                         </a>
                     </li>
 
-                    <li>
-                        <a href="#">
-                            <span class="icon">
-                                <ion-icon name="settings-outline"></ion-icon>
-                            </span>
-                            <span class="title">Configuraciones</span>
-                        </a>
-                    </li>
                 {%endif%}
 
                 <li>
-                    <a href="/cerrarS">
+                    <a href="/conf_medico">
                         <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
+                            <ion-icon name="settings-outline"></ion-icon>
                         </span>
-                        <span class="title">Salir</span>
+                        <span class="title">Configuraciones</span>
                     </a>
                 </li>
+
             </ul>
         </div>
 
@@ -121,7 +156,13 @@
 
         <div >
             <div class="user"></div>
-                <p>{{session["rol"]}}</p>
+                <p>
+                    {{session["rol"]}}
+                    /
+                    <a href="/cerrarS">
+                        <span class="title">Salir</span>
+                    </a>
+                </p>
         </div>
     </div>
             <br/>

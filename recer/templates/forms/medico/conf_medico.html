@@ -1,0 +1,36 @@
+{% extends "templateR.html" %}
+
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+<!-- ================ MEDICO ================= -->
+<div class="details">
+    <div class="recentOrders">
+        <div class="cardHeader">
+            <h2>Configuraciones</h2>
+        </div>
+        <form action="{{ url_for('foto') }}" method="POST" enctype="multipart/form-data" >
+                    <input type="file" name="foto1" accept="image/*"/>
+                    <button>Guardar</button>
+                </form>
+    <div/>
+    <br>
+    <footer>
+    <div style="float: left;">
+        <p>
+          &copy; {{ year }} - TIC'S - HOSPITAL VOZANDES QUITO HVQ S.A
+      </p>
+    </div>
+    <div style="float: right;">
+        <p>
+          <img src="{{url_for('static', filename='content/img/logo_hvq.png')}}" height="18px" width="18px"/>
+          &nbsp;  V.1.0
+      </p>
+    </div>
+    </footer>
+</div>
+
+{% endblock %}
+
+

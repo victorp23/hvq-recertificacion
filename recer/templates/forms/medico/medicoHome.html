@@ -132,13 +132,13 @@ div#main-card:hover {
             <div class="photo">
                 <img id="fotito" src="data:image/png;base64,{{session["foto"]}}">
             </div>
-            <div class="content">
-                <h2 class="name">{{session["name"]}}</h2>
-                <h3 class="fullstack">{{session["cedula"]}}</h3>
-                <h3 class="fullstack">{{session["rol"]}}</h3>
-                <h3 class="email">
+            <div class="content" style="text-align: center">
+                <p class="name">{{session["name"]}}</p>
+                <p class="fullstack">{{session["cedula"]}}</p>
+                <p class="fullstack">{{session["rol"]}}</p>
+                <p class="email">
                     <a href="">{{session["mail"]}}</a>
-                </h3>
+                </p>
 
             </div>
         </div>
